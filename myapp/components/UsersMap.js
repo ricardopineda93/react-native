@@ -6,7 +6,12 @@ export default function UsersMap(props) {
   let userLocationMarker = null;
 
   if (props.userLocation)
-    userLocationMarker = <MapView.Marker coordinate={props.userLocation} />;
+    userLocationMarker = (
+      <MapView.Marker
+        coordinate={props.userLocation}
+        onPress={() => console.log('Found me!')}
+      />
+    );
   return (
     <View style={styles.mapContainer}>
       <MapView

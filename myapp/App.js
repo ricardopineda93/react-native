@@ -34,7 +34,16 @@ export default class App extends Component {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421
         }
-      }),
+      });
+      fetch('https://pwaguide-f8cf3.firebaseio.com/places.json', {
+        method: 'POST',
+        body: JSON.stringify({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+      })
+        .then(res => console.log(res))
+        .catch(err => console.log(err)),
         err => {
           console.log(err);
         };
